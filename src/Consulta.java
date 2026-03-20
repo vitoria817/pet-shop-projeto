@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Consulta {
+    private Date data;
+    private String diagnostico;
+    private Veterinario veterinario;
+    private Pet pet;
+    private ArrayList<Medicamento> medicamentos;
+
+    public Consulta(Date data, String diagnostico, Veterinario veterinario, Pet pet) {
+        this.data = data;
+        this.diagnostico = diagnostico;
+        this.veterinario = veterinario;
+        this.pet = pet;
+        this.medicamentos = new ArrayList<>();
+    }
+
+    public Date getData() { return data; }
+    public void setData(Date data) { this.data = data; }
+
+    public String getDiagnostico() { return diagnostico; }
+    public void setDiagnostico(String diagnostico) { this.diagnostico = diagnostico; }
+
+    public Veterinario getVeterinario() { return veterinario; }
+    public void setVeterinario(Veterinario veterinario) { this.veterinario = veterinario; }
+
+    public Pet getPet() { return pet; }
+    public void setPet(Pet pet) { this.pet = pet; }
+
+    public ArrayList<Medicamento> getMedicamentos() { return medicamentos; }
+    public void adicionarMedicamento(Medicamento m) { this.medicamentos.add(m); }
+}
