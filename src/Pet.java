@@ -1,14 +1,14 @@
 public class Pet {
     private String nome;
-    private String tipo; // cachorro, gato, etc
+    private String tipo;
     private int idade;
-    private Pessoa dono;
+    private Cliente dono;
 
-    public Pet(String nome, String tipo, int idade, Pessoa dono) {
+    public Pet(String nome, String tipo, int idade, Cliente dono) {
         this.nome = nome;
         this.tipo = tipo;
         this.idade = idade;
-        this.dono = dono;
+       this.dono = dono;
     }
 
     public String getNome() { return nome; }
@@ -20,6 +20,6 @@ public class Pet {
     public int getIdade() { return idade; }
     public void setIdade(int idade) { this.idade = idade; }
 
-    public Pessoa getDono() { return dono; }
-    public void setDono(Pessoa dono) { this.dono = dono; }
+    public Cliente getDono() { return dono; }
+    public void setDono(Cliente dono) { this.dono = dono; }
 }

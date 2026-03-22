@@ -6,7 +6,7 @@ public class Veterinario {
     private String especialidade;
     private String crmv; // registro profissional do veterinário
 
-    // Construtor
+
     public Veterinario(String nome, String cpf, String telefone, String especialidade, String crmv) {
         this.nome = nome;
         this.cpf = cpf;
@@ -14,8 +14,6 @@ public class Veterinario {
         this.especialidade = especialidade;
         this.crmv = crmv;
     }
-
-    // Getters e Setters
 
     public String getNome() {
         return nome;

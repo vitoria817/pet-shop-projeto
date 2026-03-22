@@ -1,10 +1,15 @@
-public class Pessoa {
+public class Cliente {
     private String nome;
     private String cpf;
     private String telefone;
     private String email;
 
-    public Pessoa(String nome, String cpf, String telefone, String email) {
+    //construtor vazio para conseguir passar os argumentos do scanner
+    public Cliente() {
+    }
+
+    // construtor completo (pode manter)
+    public Cliente(String nome, String cpf, String telefone, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
