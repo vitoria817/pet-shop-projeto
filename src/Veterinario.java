@@ -1,57 +1,51 @@
 public class Veterinario {
 
-    private String nome;
-    private String cpf;
-    private String telefone;
-    private String especialidade;
-    private String crmv; // registro profissional do veterinário
+    private String Vetnome;
+    private String Vetcpf;
+    private String Vettelefone;
+    private String Vetespecialidade;
+    private String Vetcrmv;
 
-
-    public Veterinario(String nome, String cpf, String telefone, String especialidade, String crmv) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.especialidade = especialidade;
-        this.crmv = crmv;
+    public Veterinario() {
     }
 
     public String getNome() {
-        return nome;
+        return Vetnome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String Vetnome) {
+        this.Vetnome = Vetnome;
     }
 
     public String getCpf() {
-        return cpf;
+        return Vetcpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpf(String Vetcpf) {
+        this.Vetcpf = Vetcpf;
     }
 
     public String getTelefone() {
-        return telefone;
+        return Vettelefone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelefone(String Vettelefone) {
+        this.Vettelefone = Vettelefone;
     }
 
     public String getEspecialidade() {
-        return especialidade;
+        return Vetespecialidade;
     }
 
     public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+        this.Vetespecialidade = especialidade; // ✅ corrigido
     }
 
     public String getCrmv() {
-        return crmv;
+        return Vetcrmv;
     }
 
-    public void setCrmv(String crmv) {
-        this.crmv = crmv;
+    public void setCrmv(String Vetcrmv) {
+        this.Vetcrmv = Vetcrmv;
     }
 }

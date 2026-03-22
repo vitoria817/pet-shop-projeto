@@ -8,11 +8,8 @@ public class Consulta {
     private Pet pet;
     private ArrayList<Medicamento> medicamentos;
 
-    public Consulta(Date data, String diagnostico, Veterinario veterinario, Pet pet) {
-        this.data = data;
-        this.diagnostico = diagnostico;
-        this.veterinario = veterinario;
-        this.pet = pet;
+    public Consulta() {
+
         this.medicamentos = new ArrayList<>();
     }
 
