@@ -5,7 +5,7 @@ public class Main {
 
         // fazer uma mini tela se a pessoa é veterinário ou cliente
         // ver como o cadastro do nome do cliente já vai ficar armazenado com o pet
-        // ainda escolher se é consulta ou banho
+
 
         //tem que fazer a parte de consulta ainda!!!!
         Scanner sc = new Scanner(System.in);
@@ -140,36 +140,40 @@ public class Main {
                 break; // BREAK para não cair no case 2
             }
 
+
             case 2: {
                 System.out.print("Digite o nome do veterinário: ");
                 String nomeVet = sc.nextLine();
                 vet.setNome(nomeVet);
 
-                System.out.print("Digite o CPF do veterinário: ");
-                String cpfVet = sc.nextLine();
-                vet.setCpf(cpfVet);
+                while (true) {
+                    try {//pro cpf veterinario
+                        System.out.print("Digite o CPF do veterinário: ");
+                        String cpfVet = sc.nextLine();
+                        vet.setCpf(cpfVet);
+                    } catch (Exception e) {
+                        System.out.println("CPF inválido, tente novamente");
+                    }
+                    System.out.print("Digite o telefone do veterinário: ");
+                    String telefoneVet = sc.nextLine();
+                    vet.setTelefone(telefoneVet);
 
-                System.out.print("Digite o telefone do veterinário: ");
-                String telefoneVet = sc.nextLine();
-                vet.setTelefone(telefoneVet);
+                    System.out.print("Digite a especialidade: ");
+                    String especialidadeVet = sc.nextLine();
+                    vet.setEspecialidade(especialidadeVet);
 
-                System.out.print("Digite a especialidade: ");
-                String especialidadeVet = sc.nextLine();
-                vet.setEspecialidade(especialidadeVet);
+                    System.out.print("Digite o CRMV: ");
+                    String crmvVet = sc.nextLine();
+                    vet.setCrmv(crmvVet);
 
-                System.out.print("Digite o CRMV: ");
-                String crmvVet = sc.nextLine();
-                vet.setCrmv(crmvVet);
 
-                System.out.println("Veterinário cadastrado");
-                //FAZER CONSULTA
+                    System.out.println("Veterinário cadastrado");
+                    //FAZER CONSULTA
+                    break;
+
+                }
                 break;
             }
-
-            default:
-                System.out.println("Opção inválida!");
         }
-
-        sc.close();
     }
 }
