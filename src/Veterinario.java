@@ -38,7 +38,7 @@ public class Veterinario {
     }
 
     public void setEspecialidade(String especialidade) {
-        this.Vetespecialidade = especialidade; // ✅ corrigido
+        this.Vetespecialidade = especialidade; //corrigido
     }
 
     public String getCrmv() {

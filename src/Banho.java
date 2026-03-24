@@ -1,6 +1,6 @@
 public class Banho {
 
-    private String tipoBanho;   // ex.: Banho Simples, Hidratação
+    private String tipoBanho;   //   Banho Simples, Hidratação
     private double preco;       // preço do serviço
     private String tosa;        // tipo da tosa
 
