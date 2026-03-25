@@ -1,3 +1,5 @@
+import org.w3c.dom.CDATASection;
+
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +16,7 @@ public class Main {
         Veterinario vet = new Veterinario();
         Banho banho = new Banho();
         Pet pet = new Pet();
+        Consulta consulta= new Consulta();
 
         System.out.println("========================================");
         System.out.println("           bem-vindo ao                 ");
@@ -61,6 +64,10 @@ public class Main {
         System.out.println("digite a raça do pet");
         String Pettipo = sc.nextLine();
         pet.setTipo(Pettipo);
+
+        System.out.println("Digite o porte do animal");
+        String Petporte = sc.nextLine();
+        pet.setTipo(Petporte);
 
         System.out.println("digite a idade do pet");
         int idade = 0;
@@ -154,26 +161,32 @@ public class Main {
                     } catch (Exception e) {
                         System.out.println("CPF inválido, tente novamente");
                     }
-                    System.out.print("Digite o telefone do veterinário: ");
-                    String telefoneVet = sc.nextLine();
-                    vet.setTelefone(telefoneVet);
 
-                    System.out.print("Digite a especialidade: ");
-                    String especialidadeVet = sc.nextLine();
-                    vet.setEspecialidade(especialidadeVet);
+                System.out.print("Digite o telefone do veterinário: ");
+                String telefoneVet = sc.nextLine();
+                vet.setTelefone(telefoneVet);
 
-                    System.out.print("Digite o CRMV: ");
-                    String crmvVet = sc.nextLine();
-                    vet.setCrmv(crmvVet);
+                System.out.print("Digite a especialidade: ");
+                String especialidadeVet = sc.nextLine();
+                vet.setEspecialidade(especialidadeVet);
+
+                System.out.print("Digite o CRMV: ");
+                String crmvVet = sc.nextLine();
+                vet.setCrmv(crmvVet);
 
 
-                    System.out.println("Veterinário cadastrado");
-                    //FAZER CONSULTA
-                    break;
+                System.out.println("Veterinário cadastrado");
+                //FAZER CONSULTA
 
-                }
+               // para a consulta, ver uma forma de colocar data automatico de fazer as perguntas
+                    //e fazer as perguntas aqui!!
+                    //depois os medicamentos
+
                 break;
+
             }
+            break;
+        }
         }
     }
 }

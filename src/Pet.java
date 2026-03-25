@@ -3,12 +3,18 @@ public class Pet {
     private String Pettipo;
     private int Petidade;
     private Cliente Petdono;
+    private String Petporte;
 
     public Pet() {
 
     }
 
     // GETTERS
+
+    public String getPetporte() {
+        return Petporte;
+    }
+
     public String getNome() {
         return Petnome;
     }
@@ -26,6 +32,11 @@ public class Pet {
     }
 
     // SETTERS
+
+    public void setPetporte(String petporte) {
+        Petporte = petporte;
+    }
+
     public void setNome(String nome) {
         this.Petnome = nome;
     }
