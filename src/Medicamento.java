@@ -1,6 +1,8 @@
 public class Medicamento {
     private String nome;
     private String dosagem; // Ex: "2x ao dia"
+    private double receita;
+
 
     public Medicamento(String nome, String dosagem) {
         this.nome = nome;

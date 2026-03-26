@@ -1,4 +1,5 @@
-import org.w3c.dom.CDATASection;
+import Serviços.Banho;
+import Serviços.Consulta;
 
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         //construtores
         Cliente cliente = new Cliente();
-        Veterinario vet = new Veterinario();
+        Veterinario vet = new Veterinario(nomeVet, cpfVet, telefoneVet, especialidadeVet, crmvVet);
         Banho banho = new Banho();
         Pet pet = new Pet();
         Consulta consulta= new Consulta();
@@ -52,9 +53,6 @@ public class Main {
         String telefoneCliente = sc.nextLine();
         cliente.setTelefone(telefoneCliente);
 
-        System.out.print("Digite seu email: ");
-        String emailCliente = sc.nextLine();
-        cliente.setEmail(emailCliente);
 
         //FAZER CADASTRO DO PET AQUI
         System.out.println("digite o nome do pet");
@@ -88,7 +86,7 @@ public class Main {
 
         System.out.println("Olá, " + nomeCliente + "");
         System.out.println("O que você deseja fazer?");
-        System.out.println("1 - Banho/Consulta");
+        System.out.println("1 - Serviços.Banho/Serviços.Consulta");
         System.out.println("2 - Cadastrar Veterinário");
 
         int opcao = sc.nextInt(); //do while para si quer banho ou consulta
@@ -99,8 +97,8 @@ public class Main {
             case 1: {
                 //SERVIÇOS
                 System.out.println("\nEscolha o serviço:");
-                System.out.println("  1 - Banho/Tosa");
-                System.out.println("  2 - Consulta Veterinária");
+                System.out.println("  1 - Serviços.Banho/Tosa");
+                System.out.println("  2 - Serviços.Consulta Veterinária");
                 System.out.print("Opção: ");
 
                 String opcaoDoCliente = sc.nextLine();
@@ -111,9 +109,9 @@ public class Main {
                     opcaoDoCliente = sc.nextLine();
                 }
 
-                System.out.println("Cliente cadastrado com sucesso!");
+                System.out.println("Pessoa.Pessoa.Cliente cadastrado com sucesso!");
 
-                // se o cliente escolheu Banho/Tosa
+                // se o cliente escolheu Serviços.Banho/Tosa
                 if (opcaoDoCliente.equals("1")) {
                     while (true) {
                         System.out.println("Tipos de Tosa:");//o cliente tem que digitar igual
@@ -157,7 +155,7 @@ public class Main {
                     try {//pro cpf veterinario
                         System.out.print("Digite o CPF do veterinário: ");
                         String cpfVet = sc.nextLine();
-                        vet.setCpf(cpfVet);
+
                     } catch (Exception e) {
                         System.out.println("CPF inválido, tente novamente");
                     }
@@ -168,11 +166,11 @@ public class Main {
 
                 System.out.print("Digite a especialidade: ");
                 String especialidadeVet = sc.nextLine();
-                vet.setEspecialidade(especialidadeVet);
+                Veterinario = new Vetespecialidade();
 
                 System.out.print("Digite o CRMV: ");
                 String crmvVet = sc.nextLine();
-                vet.setCrmv(crmvVet);
+
 
 
                 System.out.println("Veterinário cadastrado");

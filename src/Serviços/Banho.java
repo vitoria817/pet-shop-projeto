@@ -1,6 +1,8 @@
+package Serviços;
+
 public class Banho {
 
-    private String tipoBanho;   //   Banho Simples, Hidratação
+    private String tipoBanho;   //   Serviços.Banho Simples, Hidratação
     private double preco;       // preço do serviço
     private String tosa;        // tipo da tosa
 
@@ -17,16 +19,16 @@ public class Banho {
         this.tipoBanho = tipoBanho;
         // Preço do banho (opcional)
         switch (tipoBanho) {
-            case "Banho Simples":
+            case "Serviços.Banho Simples":
                 this.preco = 30.0;
                 break;
-            case "Banho com Hidratação":
+            case "Serviços.Banho com Hidratação":
                 this.preco = 50.0;
                 break;
-            case "Banho Desembaraçante":
+            case "Serviços.Banho Desembaraçante":
                 this.preco = 40.0;
                 break;
-            case "Banho Antipulgas":
+            case "Serviços.Banho Antipulgas":
                 this.preco = 45.0;
                 break;
             default:

@@ -2,7 +2,6 @@ public class Pet {
     private String Petnome;
     private String Pettipo;
     private int Petidade;
-    private Cliente Petdono;
     private String Petporte;
 
     public Pet() {
@@ -27,9 +26,7 @@ public class Pet {
         return Petidade;
     }
 
-    public Cliente getDono() {
-        return Petdono;
-    }
+
 
     // SETTERS
 
@@ -49,7 +46,4 @@ public class Pet {
         this.Petidade = idade;
     }
 
-    public void setDono(Cliente dono) {
-        this.Petdono = dono;
-    }
 }
