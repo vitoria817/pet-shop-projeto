@@ -1,9 +1,10 @@
-import Pessoa.*;
-import Serviços.*;
+import Pessoa.*; // importando classe abstrata
+import Serviços.*;// importando classe abstrata
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.text.SimpleDateFormat; // formato de data
 
 public class Main {
     public static void main(String[] args) {
@@ -18,18 +19,19 @@ public class Main {
         try {
 
             // ===== CADASTRO DO CLIENTE =====
-            Cliente cliente = new Cliente();
+            Cliente cliente = new Cliente();//
 
-            System.out.print("Nome: ");
+
+            System.out.print("digite seu nome: ");
             cliente.setNome(sc.nextLine()); // define o nome do cliente
 
             // Loop para garantir CPF válido
             while (true) {
                 try {
-                    System.out.print("CPF: ");
+                    System.out.print(" digite seu CPF: ");
                     cliente.setCpf(sc.nextLine()); // pode lançar erro
                     break; // sai do loop se der certo
-                } catch (IllegalArgumentException e) {
+                } catch (IllegalArgumentException e) { //mostra o erro la na classe pessoa
                     System.out.println("Erro: " + e.getMessage());
                 }
             }
@@ -61,7 +63,7 @@ public class Main {
                     "Clínico Geral",
                     "CRMV-1234"
             );
-
+            System.out.println(vetPadrao.getDescricao());
             // Lista que armazena TODOS os serviços realizados
             // Aqui ocorre POLIMORFISMO (Banho e Consulta são Servico)
             ArrayList<Servico> servicos = new ArrayList<>();
@@ -115,7 +117,7 @@ public class Main {
                         // Define data atual automaticamente
                         consulta.setDataServico(new Date());
 
-                        servicos.add(consulta);
+                        servicos.add(consulta);//add=adiciona a lita
 
                         System.out.println("Consulta registrada com " + vetPadrao.getNome());
                         break;
@@ -138,6 +140,7 @@ public class Main {
 
             System.out.println("Cliente: " + cliente.getNome());
             System.out.println("Pet: " + pet.getNome());
+            //seria bim colocar data aqui
 
             double total = 0;
 

@@ -1,11 +1,11 @@
 package Pessoa;
 
-public abstract class Pessoa {
+public abstract class Pessoa { //abstract= n pode criar objeto direto
     private String nome;
     private String cpf;
     private String telefone;
 
-    public Pessoa() {}
+    public Pessoa() {}//cria objeto sem valores
 
     public Pessoa(String nome, String cpf, String telefone) {
         this.nome = nome;
@@ -18,7 +18,7 @@ public abstract class Pessoa {
     public String getTelefone() { return telefone; }
 
     public void setCpf(String cpf) {
-        if(cpf.length() != 11) throw new IllegalArgumentException("CPF deve ter 11 dígitos");
+        if(cpf.length() != 11) throw new IllegalArgumentException("CPF deve ter 11 dígitos");//erro do main
         this.cpf = cpf;
     }
 
@@ -26,5 +26,5 @@ public abstract class Pessoa {
     public void setTelefone(String telefone) { this.telefone = telefone; }
 
     // ABSTRAÇÃO
-    public abstract String getDescricao();
+    public abstract String getDescricao();//COLOCAR USO
 }

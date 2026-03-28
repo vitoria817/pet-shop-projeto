@@ -10,7 +10,9 @@ public class Veterinario extends Pessoa {
     }
 
     public Veterinario(String nome, String cpf, String telefone, String especialidade, String crmv) {
-        super(nome, cpf, telefone);
+
+        super(nome, cpf, telefone);//chamando o construtor da classe pessoa
+
         this.especialidade = especialidade;
         this.crmv = crmv;
     }
@@ -40,4 +42,5 @@ public class Veterinario extends Pessoa {
     public void setCrmv(String crmv) {
         this.crmv = crmv;
     }
+
 }

@@ -11,15 +11,15 @@ public class Banho extends Servico {
         super();
     }
 
-    public Banho(String tipoBanho, String tosa) {
+    public Banho(String tipoBanho, String tosa) {//COLOCAR USO
         super();
         this.tipoBanho = tipoBanho;
         this.tosa = tosa;
     }
 
     // GETTERS e SETTERS
-    public String getTipoBanho() { return tipoBanho; }
-    public void setTipoBanho(String tipoBanho) { this.tipoBanho = tipoBanho; }
+    public String getTipoBanho() { return tipoBanho; }//COLOCAR USO
+    public void setTipoBanho(String tipoBanho) { this.tipoBanho = tipoBanho; }//COLOCAR USO
 
     public String getTosa() { return tosa; }
     public void setTosa(String tosa) { this.tosa = tosa; }

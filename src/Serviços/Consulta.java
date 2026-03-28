@@ -35,11 +35,11 @@ public class Consulta extends Servico {
         this.veterinario = veterinario;
     }
 
-    public void adicionarMedicamento(Medicamento m) {
+    public void adicionarMedicamento(Medicamento m) {//COLOCAR USO
         medicamentos.add(m);
     }
 
-    public ArrayList<Medicamento> getMedicamentos() {
+    public ArrayList<Medicamento> getMedicamentos() {//COLOCAR USO
         return medicamentos;
     }
 
@@ -48,7 +48,7 @@ public class Consulta extends Servico {
 
         double total = 100.0; // base
 
-        // 🔥 agora soma preço dos medicamentos
+        // agora soma preço dos medicamentos
         for (Medicamento m : medicamentos) {
             total += m.getReceita();
         }
