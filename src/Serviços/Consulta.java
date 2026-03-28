@@ -1,33 +1,58 @@
 package Serviços;
 
+import Pessoa.Veterinario;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Consulta {
-    private Date data;
+public class Consulta extends Servico {
+
     private String diagnostico;
     private Veterinario veterinario;
-    private Pet pet;
-    private ArrayList<Medicamento> medicamentos;
+    private ArrayList<Medicamento> medicamentos = new ArrayList<>();
 
     public Consulta() {
-
-    }
-    public void mostrarConsulta() {
-        System.out.println("Data da consulta: " + data);
+        super();
     }
 
-    public Date getData() { return data; }
-    public void setData(Date data) { this.data = data; }
+    public Consulta(Date dataServico, String diagnostico) {
+        super(dataServico);
+        this.diagnostico = diagnostico;
+    }
 
-    public String getDiagnostico() { return diagnostico; }
-    public void setDiagnostico(String diagnostico) { this.diagnostico = diagnostico; }
+    public String getDiagnostico() {
+        return diagnostico;
+    }
 
-    public Veterinario getVeterinario() { return veterinario; }
-    public void setVeterinario(Veterinario veterinario) { this.veterinario = veterinario; }
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
+    }
 
-    public Pet getPet() { return pet; }
-    public void setPet(Pet pet) { this.pet = pet; }
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
 
-    public ArrayList<Medicamento> getMedicamentos() { return medicamentos; }
-    public void adicionarMedicamento(Medicamento m) { this.medicamentos.add(m); }}
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
+
+    public void adicionarMedicamento(Medicamento m) {
+        medicamentos.add(m);
+    }
+
+    public ArrayList<Medicamento> getMedicamentos() {
+        return medicamentos;
+    }
+
+    @Override
+    public double calcularPreco() {
+
+        double total = 100.0; // base
+
+        // 🔥 agora soma preço dos medicamentos
+        for (Medicamento m : medicamentos) {
+            total += m.getReceita();
+        }
+
+        return total;
+    }
+}

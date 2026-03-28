@@ -1,190 +1,181 @@
-import Serviços.Banho;
-import Serviços.Consulta;
+import Pessoa.*;
+import Serviços.*;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        // fazer uma mini tela se a pessoa é veterinário ou cliente
-        // ver como o cadastro do nome do cliente já vai ficar armazenado com o pet
-
-
-        //tem que fazer a parte de consulta ainda!!!!
+        // Scanner para entrada de dados do usuário
         Scanner sc = new Scanner(System.in);
-        //construtores
-        Cliente cliente = new Cliente();
-        Veterinario vet = new Veterinario(nomeVet, cpfVet, telefoneVet, especialidadeVet, crmvVet);
-        Banho banho = new Banho();
-        Pet pet = new Pet();
-        Consulta consulta= new Consulta();
 
-        System.out.println("========================================");
-        System.out.println("           bem-vindo ao                 ");
         System.out.println("========================================");
         System.out.println("           BYTE PET SHOP                ");
         System.out.println("========================================");
-        System.out.println("        Sistema de Atendimento          ");
-        System.out.println("----------------------------------------");
 
-        System.out.print("Digite seu nome: "); //cliente
-        String nomeCliente = sc.nextLine();
-        cliente.setNome(nomeCliente);
+        try {
 
-        while (true) { //LOOP SI DER NO CATCH
-            try {
-                System.out.print("Digite seu CPF: ");
-                String cpfCliente = sc.nextLine();
+            // ===== CADASTRO DO CLIENTE =====
+            Cliente cliente = new Cliente();
 
-                if (cpfCliente.length() != 11) {
-                    System.out.println("CPF inválido");
-                    continue; // volta pro início do loop
+            System.out.print("Nome: ");
+            cliente.setNome(sc.nextLine()); // define o nome do cliente
+
+            // Loop para garantir CPF válido
+            while (true) {
+                try {
+                    System.out.print("CPF: ");
+                    cliente.setCpf(sc.nextLine()); // pode lançar erro
+                    break; // sai do loop se der certo
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Erro: " + e.getMessage());
                 }
-
-                cliente.setCpf(cpfCliente); // só salva se tiver 11 dígitos
-                break; // SI DER CERTO ELE SAI DO LOOP
-
-            } catch (Exception e) {
-                System.out.println("Inválido, tente novamente");
             }
-        } //FECHOU O WHILE
 
-        System.out.print("Digite seu telefone: ");
-        String telefoneCliente = sc.nextLine();
-        cliente.setTelefone(telefoneCliente);
+            System.out.print("Telefone: ");
+            cliente.setTelefone(sc.nextLine());
 
+            // ===== CADASTRO DO PET =====
+            Pet pet = new Pet();
 
-        //FAZER CADASTRO DO PET AQUI
-        System.out.println("digite o nome do pet");
-        String Petnome = sc.nextLine();
-        pet.setNome(Petnome);
+            System.out.print("Nome do pet: ");
+            pet.setNome(sc.nextLine());
 
-        System.out.println("digite a raça do pet");
-        String Pettipo = sc.nextLine();
-        pet.setTipo(Pettipo);
+            System.out.print("Tipo: ");
+            pet.setTipo(sc.nextLine());
 
-        System.out.println("Digite o porte do animal");
-        String Petporte = sc.nextLine();
-        pet.setTipo(Petporte);
+            System.out.print("Porte: ");
+            pet.setPetporte(sc.nextLine());
 
-        System.out.println("digite a idade do pet");
-        int idade = 0;
-        boolean idadeValida = false;
-        while (!idadeValida) { // LOOP PARA ENTRADA VALIDA
-            if (sc.hasNextInt()) {
-                idade = sc.nextInt();
-                idadeValida = true;
-            } else {
-                System.out.println("Idade inválida");
-                sc.next(); // limpar entrada inválida
-            }
-        }
-        sc.nextLine(); //so pra limpar e não consumir o próximo
-        pet.setIdade(idade);
+            System.out.print("Idade: ");
+            pet.setIdade(sc.nextInt());
+            sc.nextLine(); // limpa buffer
 
-        pet.setDono(cliente);
+            // Veterinário fixo (simula funcionário do sistema)
+            Veterinario vetPadrao = new Veterinario(
+                    "Dr. Carlos",
+                    "12345678900",
+                    "41999999999",
+                    "Clínico Geral",
+                    "CRMV-1234"
+            );
 
-        System.out.println("Olá, " + nomeCliente + "");
-        System.out.println("O que você deseja fazer?");
-        System.out.println("1 - Serviços.Banho/Serviços.Consulta");
-        System.out.println("2 - Cadastrar Veterinário");
+            // Lista que armazena TODOS os serviços realizados
+            // Aqui ocorre POLIMORFISMO (Banho e Consulta são Servico)
+            ArrayList<Servico> servicos = new ArrayList<>();
 
-        int opcao = sc.nextInt(); //do while para si quer banho ou consulta
-        sc.nextLine(); // limpar buffer
+            int opcao;
 
-        switch (opcao) {
-
-            case 1: {
-                //SERVIÇOS
-                System.out.println("\nEscolha o serviço:");
-                System.out.println("  1 - Serviços.Banho/Tosa");
-                System.out.println("  2 - Serviços.Consulta Veterinária");
+            // ===== MENU PRINCIPAL =====
+            do {
+                System.out.println("\n--- MENU ---");
+                System.out.println("1 - Banho/Tosa");
+                System.out.println("2 - Consulta Veterinária");
+                System.out.println("0 - Finalizar");
                 System.out.print("Opção: ");
 
-                String opcaoDoCliente = sc.nextLine();
+                opcao = sc.nextInt();
+                sc.nextLine();
 
-                // loop para repetir si o user n digitar exatamente igual
-                while (!opcaoDoCliente.equals("1") && !opcaoDoCliente.equals("2")) {
-                    System.out.print(" Digite 1 ou 2: ");
-                    opcaoDoCliente = sc.nextLine();
-                }
+                switch (opcao) {
 
-                System.out.println("Pessoa.Pessoa.Cliente cadastrado com sucesso!");
+                    case 1: {
+                        System.out.println("\n--- BANHO ---");
 
-                // se o cliente escolheu Serviços.Banho/Tosa
-                if (opcaoDoCliente.equals("1")) {
-                    while (true) {
-                        System.out.println("Tipos de Tosa:");//o cliente tem que digitar igual
-                        System.out.println("Tosa Higiênica");
-                        System.out.println("Tosa Racional");
-                        System.out.println("Tosa Estilizada");
-                        System.out.println("Tosa Completa");
-                        System.out.print("Digite o tipo: ");
-                        System.out.println("digite igual o catalogo");
-                        String tipoTosa = sc.nextLine();
+                        Banho banho = new Banho();
 
-                        // loop continua, usuário digita de novo
-                        switch (tipoTosa) {
-                            case "Tosa Higiênica":
-                            case "Tosa Racional":
-                            case "Tosa Estilizada":
-                            case "Tosa Completa":
-                                banho.setTosa(tipoTosa);
-                                System.out.println("Tosa escolhida: " + banho.getTosa());
-                                System.out.println("Total a pagar: R$ " + banho.getPreco());//get pegando o valor
-                                //que foi digitado
-                                break;
-                            default:
-                                System.out.println("Tosa inválida");
-                                continue;
-                        }
+                        // Escolha do tipo de tosa
+                        System.out.print("Digite o tipo de tosa: ");
+                        System.out.println("Tosa Higiênica," +
+                                "Tosa Racional," +
+                                "Tosa Estilizada," +
+                                "Tosa Completa" );
+
+                        banho.setTosa(sc.nextLine());
+
+                        servicos.add(banho); // adiciona na lista
+
+                        System.out.println("Banho registrado");
                         break;
                     }
-                }
 
-                break; // BREAK para não cair no case 2
-            }
+                    case 2: {
+                        System.out.println("\n--- CONSULTA ---");
 
+                        Consulta consulta = new Consulta();
 
-            case 2: {
-                System.out.print("Digite o nome do veterinário: ");
-                String nomeVet = sc.nextLine();
-                vet.setNome(nomeVet);
+                        System.out.print("Diagnóstico: ");
+                        consulta.setDiagnostico(sc.nextLine());
 
-                while (true) {
-                    try {//pro cpf veterinario
-                        System.out.print("Digite o CPF do veterinário: ");
-                        String cpfVet = sc.nextLine();
+                        // Associação com veterinário (relacionamento entre objetos)
+                        consulta.setVeterinario(vetPadrao);
 
-                    } catch (Exception e) {
-                        System.out.println("CPF inválido, tente novamente");
+                        // Define data atual automaticamente
+                        consulta.setDataServico(new Date());
+
+                        servicos.add(consulta);
+
+                        System.out.println("Consulta registrada com " + vetPadrao.getNome());
+                        break;
                     }
 
-                System.out.print("Digite o telefone do veterinário: ");
-                String telefoneVet = sc.nextLine();
-                vet.setTelefone(telefoneVet);
+                    case 0:
+                        System.out.println("\nFinalizando atendimento...");
+                        break;
 
-                System.out.print("Digite a especialidade: ");
-                String especialidadeVet = sc.nextLine();
-                Veterinario = new Vetespecialidade();
+                    default:
+                        System.out.println("Opção inválida");
+                }
 
-                System.out.print("Digite o CRMV: ");
-                String crmvVet = sc.nextLine();
+            } while (opcao != 0);
 
+            // ===== RESUMO FINAL =====
+            System.out.println("\n========================================");
+            System.out.println("           RESUMO DO ATENDIMENTO        ");
+            System.out.println("========================================");
 
+            System.out.println("Cliente: " + cliente.getNome());
+            System.out.println("Pet: " + pet.getNome());
 
-                System.out.println("Veterinário cadastrado");
-                //FAZER CONSULTA
+            double total = 0;
 
-               // para a consulta, ver uma forma de colocar data automatico de fazer as perguntas
-                    //e fazer as perguntas aqui!!
-                    //depois os medicamentos
+            // Percorre todos os serviços realizados
+            for (Servico s : servicos) {
 
-                break;
+                // Mostra o tipo da classe em tempo de execução
+                System.out.println("\nServiço: " + s.getClass().getSimpleName());
 
+                // instanceof verifica o tipo real do objeto
+                if (s instanceof Consulta) {
+                    Consulta c = (Consulta) s;
+
+                    System.out.println("Diagnóstico: " + c.getDiagnostico());
+                    System.out.println("Veterinário: " + c.getVeterinario().getNome());
+                    System.out.println("Especialidade: " + c.getVeterinario().getEspecialidade());
+                }
+
+                if (s instanceof Banho) {
+                    Banho b = (Banho) s;
+                    System.out.println("Tosa: " + b.getTosa());
+                }
+
+                // Polimorfismo: cada classe calcula seu próprio preço
+                System.out.println("Valor: R$ " + s.calcularPreco());
+
+                total += s.calcularPreco();
             }
-            break;
+
+            System.out.println("\n----------------------------------------");
+            System.out.println("TOTAL: R$ " + total);
+            System.out.println("========================================");
+
+        } catch (Exception e) {
+            // Captura erro geral do sistema
+            System.out.println("Erro no sistema: " + e.getMessage());
         }
-        }
+
+        System.out.println("\nSistema encerrado.");
     }
 }

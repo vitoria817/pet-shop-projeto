@@ -1,27 +1,43 @@
 package Pessoa;
+
+// Herança: Veterinario é uma Pessoa
 public class Veterinario extends Pessoa {
     private String especialidade;
     private String crmv;
 
+    public Veterinario() {
+        super();
+    }
+
     public Veterinario(String nome, String cpf, String telefone, String especialidade, String crmv) {
-        setNome(nome);
-        setCpf(cpf);
-        setTelefone(telefone);
+        super(nome, cpf, telefone);
         this.especialidade = especialidade;
         this.crmv = crmv;
     }
-//polimorismo pegar um metodo que existe e alterar/modificar
-    @Override
-    public String Vetespecialiadade() {
-        return "";
-    }
 
     @Override
-    public String Vetcrmv() {
-        return "";
+    public String getDescricao() {
+        return "Veterinário: " + getNome() +
+                " | Especialidade: " + especialidade +
+                " | CRMV: " + crmv;
     }
-    // Getters e setters adicionais se precisar
-    public void setEspecialidade(String especialidade) { this.especialidade = especialidade; }
-    public void setCrmv(String crmv) { this.crmv = crmv; }
+
+
+    // GETTERS
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public String getCrmv() {
+        return crmv;
+    }
+
+    // SETTERS
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    public void setCrmv(String crmv) {
+        this.crmv = crmv;
+    }
 }
-

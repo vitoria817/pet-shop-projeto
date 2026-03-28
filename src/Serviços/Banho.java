@@ -1,71 +1,39 @@
 package Serviços;
 
-public class Banho {
+// Classe filha de Servico
+public class Banho extends Servico {
 
-    private String tipoBanho;   //   Serviços.Banho Simples, Hidratação
-    private double preco;       // preço do serviço
-    private String tosa;        // tipo da tosa
+    private String tipoBanho;
+    private String tosa;
+    private double preco;
 
-    // Construtor vazio
     public Banho() {
+        super();
     }
 
-    // Getters e Setters
-    public String getTipoBanho() {
-        return tipoBanho;
-    }
-
-    public void setTipoBanho(String tipoBanho) {
+    public Banho(String tipoBanho, String tosa) {
+        super();
         this.tipoBanho = tipoBanho;
-        // Preço do banho (opcional)
-        switch (tipoBanho) {
-            case "Serviços.Banho Simples":
-                this.preco = 30.0;
-                break;
-            case "Serviços.Banho com Hidratação":
-                this.preco = 50.0;
-                break;
-            case "Serviços.Banho Desembaraçante":
-                this.preco = 40.0;
-                break;
-            case "Serviços.Banho Antipulgas":
-                this.preco = 45.0;
-                break;
-            default:
-                this.preco = 0.0;
-        }
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    public String getTosa() {
-        return tosa;
-    }
-
-    public void setTosa(String tosa) {
         this.tosa = tosa;
-        // Define o preço automaticamente com base no tipo de tosa
+    }
+
+    // GETTERS e SETTERS
+    public String getTipoBanho() { return tipoBanho; }
+    public void setTipoBanho(String tipoBanho) { this.tipoBanho = tipoBanho; }
+
+    public String getTosa() { return tosa; }
+    public void setTosa(String tosa) { this.tosa = tosa; }
+
+    // Regra de negócio para cálculo de preço
+    @Override
+    public double calcularPreco() {
         switch (tosa) {
-            case "Tosa Higiênica":
-                this.preco = 25.0;
-                break;
-            case "Tosa Racional":
-                this.preco = 40.0;
-                break;
-            case "Tosa Estilizada":
-                this.preco = 50.0;
-                break;
-            case "Tosa Completa":
-                this.preco = 60.0;
-                break;
-            default:
-                this.preco = 0.0; // tipo inválido
+            case "Tosa Higiênica": preco = 25.0; break;
+            case "Tosa Racional": preco = 40.0; break;
+            case "Tosa Estilizada": preco = 50.0; break;
+            case "Tosa Completa": preco = 60.0; break;
+            default: preco = 0.0;
         }
+        return preco;
     }
 }

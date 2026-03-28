@@ -1,43 +1,20 @@
 package Pessoa;
 
-public class Cliente {
-    //nome pet
-    //data
-    //lista
-    //construtor vazio para conseguir passar os argumentos do scanner
+// Classe Cliente herda de Pessoa
+public class Cliente extends Pessoa {
+
     public Cliente() {
+        super();
     }
 
-    // construtor completo (pode manter)
-    public Cliente(String nome, String cpf, String telefone, String email) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-
+    public Cliente(String nome, String cpf, String telefone) {
+        super(nome, cpf, telefone);
     }
 
-    public String getNome() {
-        return nome;
+    // Implementação obrigatória da classe abstrata
+    @Override
+    public String getDescricao() {
+        return "Cliente: " + getNome() + " | CPF: " + getCpf();
     }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
 }
+
