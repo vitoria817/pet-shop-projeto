@@ -18,7 +18,10 @@ public abstract class Pessoa { //abstract= n pode criar objeto direto
     public String getTelefone() { return telefone; }
 
     public void setCpf(String cpf) {
-        if(cpf.length() != 11) throw new IllegalArgumentException("CPF deve ter 11 dígitos");//erro do main
+        if (cpf == null) throw new IllegalArgumentException("CPF não pode ser nulo");
+        cpf = cpf.replaceAll("\\D", ""); // remove tudo que não seja número
+        if(cpf.length() != 11)
+            throw new IllegalArgumentException("CPF deve ter 11 dígitos");
         this.cpf = cpf;
     }
 

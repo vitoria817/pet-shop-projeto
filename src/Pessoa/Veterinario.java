@@ -19,9 +19,10 @@ public class Veterinario extends Pessoa {
 
     @Override
     public String getDescricao() {
-        return "Veterinário: " + getNome() +
+        return "Veterinário: " + getNome() +         // isso é sobrepor
                 " | Especialidade: " + especialidade +
                 " | CRMV: " + crmv;
+
     }
 
 

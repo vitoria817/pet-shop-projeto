@@ -13,13 +13,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("========================================");
+        System.out.println("            BEM-VINDO AO                ");
+        System.out.println("========================================");
         System.out.println("           BYTE PET SHOP                ");
         System.out.println("========================================");
 
         try {
 
-            // ===== CADASTRO DO CLIENTE =====
-            Cliente cliente = new Cliente();//
+            //CADASTRO DO CLIENTE
+            Cliente cliente = new Cliente();//objeto
 
 
             System.out.print("digite seu nome: ");
@@ -28,7 +30,7 @@ public class Main {
             // Loop para garantir CPF válido
             while (true) {
                 try {
-                    System.out.print(" digite seu CPF: ");
+                    System.out.print("digite seu CPF: ");
                     cliente.setCpf(sc.nextLine()); // pode lançar erro
                     break; // sai do loop se der certo
                 } catch (IllegalArgumentException e) { //mostra o erro la na classe pessoa
@@ -39,7 +41,7 @@ public class Main {
             System.out.print("Telefone: ");
             cliente.setTelefone(sc.nextLine());
 
-            // ===== CADASTRO DO PET =====
+            // CADASTRO DO PET
             Pet pet = new Pet();
 
             System.out.print("Nome do pet: ");
@@ -58,7 +60,7 @@ public class Main {
             // Veterinário fixo (simula funcionário do sistema)
             Veterinario vetPadrao = new Veterinario(
                     "Dr. Carlos",
-                    "12345678900",
+                    "12345678910",
                     "41999999999",
                     "Clínico Geral",
                     "CRMV-1234"
@@ -165,14 +167,13 @@ public class Main {
                 }
 
                 // Polimorfismo: cada classe calcula seu próprio preço
+                System.out.println("________________________________");
                 System.out.println("Valor: R$ " + s.calcularPreco());
+                System.out.println("________________________________");
 
                 total += s.calcularPreco();
             }
 
-            System.out.println("\n----------------------------------------");
-            System.out.println("TOTAL: R$ " + total);
-            System.out.println("========================================");
 
         } catch (Exception e) {
             // Captura erro geral do sistema

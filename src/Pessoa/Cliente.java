@@ -14,7 +14,7 @@ public class Cliente extends Pessoa {
     // Implementação obrigatória da classe abstrata
     @Override//COLOCAR USO
     public String getDescricao() {
-        return "Cliente: " + getNome() + " | CPF: " + getCpf();
+        return "Cliente: " + getNome()+ " | CPF: " + getCpf();
         //get descrição vem da classe abstrata
         //@Override sobrescreve um metodo existente da super() classe pessoa
     }
