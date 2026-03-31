@@ -12,10 +12,10 @@ public class Main {
         // Scanner para entrada de dados do usuário
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("\n========================================");
+        System.out.println("         🐾 BYTE PET SHOP 🐾           ");
         System.out.println("========================================");
-        System.out.println("            BEM-VINDO AO                ");
-        System.out.println("========================================");
-        System.out.println("           BYTE PET SHOP                ");
+        System.out.println("     Sistema de Atendimento Pet         ");
         System.out.println("========================================");
 
         try {
@@ -24,13 +24,15 @@ public class Main {
             Cliente cliente = new Cliente();//objeto
 
 
-            System.out.print("digite seu nome: ");
+            System.out.println("📋 CADASTRO DO CLIENTE");
+            System.out.println("----------------------------------------");
+            System.out.print("👤 Nome: ");
             cliente.setNome(sc.nextLine()); // define o nome do cliente
 
             // Loop para garantir CPF válido
             while (true) {
                 try {
-                    System.out.print("digite seu CPF: ");
+                    System.out.print("🪪 CPF: ");
                     cliente.setCpf(sc.nextLine()); // pode lançar erro
                     break; // sai do loop se der certo
                 } catch (IllegalArgumentException e) { //mostra o erro la na classe pessoa
@@ -38,22 +40,24 @@ public class Main {
                 }
             }
 
-            System.out.print("Telefone: ");
+            System.out.print("📞 Telefone: ");
             cliente.setTelefone(sc.nextLine());
 
             // CADASTRO DO PET
             Pet pet = new Pet();
+            System.out.println("🐶 CADASTRO DO PET");
+            System.out.println("----------------------------------------");
 
-            System.out.print("Nome do pet: ");
+            System.out.print("🐾 Nome do pet: ");
             pet.setNome(sc.nextLine());
 
-            System.out.print("Tipo: ");
+            System.out.print("🐕 Tipo (Cachorro/Gato): ");
             pet.setTipo(sc.nextLine());
 
-            System.out.print("Porte: ");
+            System.out.print("📏 Porte (Pequeno/Médio/Grande): ");
             pet.setPetporte(sc.nextLine());
 
-            System.out.print("Idade: ");
+            System.out.print("🎂 Idade: ");
             pet.setIdade(sc.nextInt());
             sc.nextLine(); // limpa buffer
 
@@ -74,11 +78,14 @@ public class Main {
 
             //  MENU PRINCIPAL
             do {
-                System.out.println("\n--- MENU ---");
-                System.out.println("1 - Banho/Tosa");
-                System.out.println("2 - Consulta Veterinária");
-                System.out.println("0 - Finalizar");
-                System.out.print("Opção: ");
+                System.out.println("\n========================================");
+                System.out.println("              📌 MENU                   ");
+                System.out.println("========================================");
+                System.out.println("1️⃣  - Banho / Tosa");
+                System.out.println("2️⃣  - Consulta Veterinária");
+                System.out.println("0️⃣  - Finalizar atendimento");
+                System.out.println("========================================");
+                System.out.print("👉 Escolha uma opção: ");
 
                 opcao = sc.nextInt();
                 sc.nextLine();
@@ -86,27 +93,31 @@ public class Main {
                 switch (opcao) {
 
                     case 1: {
-                        System.out.println("\n--- BANHO ---");
 
                         Banho banho = new Banho();
 
                         // Escolha do tipo de tosa
-                        System.out.print("Digite o tipo de tosa: ");
-                        System.out.println("Tosa Higiênica," +
-                                "Tosa Racional," +
-                                "Tosa Estilizada," +
-                                "Tosa Completa" );
+                        System.out.println("\n🛁 BANHO / TOSA");
+                        System.out.println("----------------------------------------");
+                        System.out.println("Tipos disponíveis:");
+                        System.out.println("• Tosa Higiênica");
+                        System.out.println("• Tosa Racional");
+                        System.out.println("• Tosa Estilizada");
+                        System.out.println("• Tosa Completa");
+
+                        System.out.print("\n✂️  Escolha a tosa: ");
 
                         banho.setTosa(sc.nextLine());
 
                         servicos.add(banho); // adiciona na lista
 
-                        System.out.println("Banho registrado");
+                        System.out.println("✅ Serviço de banho registrado com sucesso!");
                         break;
                     }
 
                     case 2: {
-                        System.out.println("\n--- CONSULTA ---");
+                        System.out.println("\n🩺 CONSULTA VETERINÁRIA");
+                        System.out.println("----------------------------------------");
 
                         Consulta consulta = new Consulta();
 
@@ -121,7 +132,8 @@ public class Main {
 
                         servicos.add(consulta);//add=adiciona a lita
 
-                        System.out.println("Consulta registrada com " + vetPadrao.getNome());
+                        System.out.println("👨‍⚕️ Veterinário: " + vetPadrao.getNome());
+                        System.out.println("✅ Consulta registrada com sucesso!");
                         break;
                     }
 
@@ -137,11 +149,11 @@ public class Main {
 
             //  RESUMO FINAL
             System.out.println("\n========================================");
-            System.out.println("           RESUMO DO ATENDIMENTO        ");
-            System.out.println("========================================");
+            System.out.println("           📊 RESUMO DO ATENDIMENTO       ");
+            System.out.println("==========================================");
 
-            System.out.println("Cliente: " + cliente.getNome());
-            System.out.println("Pet: " + pet.getNome());
+            System.out.println("👤 Cliente: " + cliente.getNome());
+            System.out.println("🐾 Pet: " + pet.getNome());
             //seria bim colocar data aqui
 
             double total = 0;
@@ -150,7 +162,8 @@ public class Main {
             for (Servico s : servicos) {
 
                 // Mostra o tipo da classe em tempo de execução
-                System.out.println("\nServiço: " + s.getClass().getSimpleName());
+                System.out.println("\n----------------------------------------");
+                System.out.println("🔧 Serviço: " + s.getClass().getSimpleName());
 
                 // instanceof verifica o tipo real do objeto
                 if (s instanceof Consulta) {
@@ -168,12 +181,15 @@ public class Main {
 
                 // Polimorfismo: cada classe calcula seu próprio preço
                 System.out.println("________________________________");
-                System.out.println("Valor: R$ " + s.calcularPreco());
+                double valor = s.calcularPreco();
+                System.out.println("💰 Valor: R$ " + valor);
                 System.out.println("________________________________");
 
-                total += s.calcularPreco();
+                total += s.calcularPreco(); 
             }
-
+                System.out.println("\n========================================");
+                System.out.println("💵 TOTAL: R$ " + total);
+                System.out.println("========================================");
 
         } catch (Exception e) {
             // Captura erro geral do sistema
