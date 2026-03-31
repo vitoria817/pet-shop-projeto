@@ -7,12 +7,12 @@ public class Cliente extends Pessoa {
         super();
     }
 
-    public Cliente(String nome, String cpf, String telefone) {//CCOLOCAR USO
+    public Cliente(String nome, String cpf, String telefone) {
         super(nome, cpf, telefone);
     }
 
     // Implementação obrigatória da classe abstrata
-    @Override//COLOCAR USO
+    @Override
     public String getDescricao() {
         return "Cliente: " + getNome()+ " | CPF: " + getCpf();
         //get descrição vem da classe abstrata

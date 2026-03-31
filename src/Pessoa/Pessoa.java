@@ -29,5 +29,5 @@ public abstract class Pessoa { //abstract= n pode criar objeto direto
     public void setTelefone(String telefone) { this.telefone = telefone; }
 
     // ABSTRAÇÃO
-    public abstract String getDescricao();//COLOCAR USO
+    public abstract String getDescricao();
 }

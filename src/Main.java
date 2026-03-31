@@ -72,7 +72,7 @@ public class Main {
 
             int opcao;
 
-            // ===== MENU PRINCIPAL =====
+            //  MENU PRINCIPAL
             do {
                 System.out.println("\n--- MENU ---");
                 System.out.println("1 - Banho/Tosa");
@@ -135,7 +135,7 @@ public class Main {
 
             } while (opcao != 0);
 
-            // ===== RESUMO FINAL =====
+            //  RESUMO FINAL
             System.out.println("\n========================================");
             System.out.println("           RESUMO DO ATENDIMENTO        ");
             System.out.println("========================================");

@@ -12,7 +12,7 @@ public abstract class Servico {
         this.dataServico = dataServico;
     }
 
-    public Date getDataServico() {   //COLOCAR USO
+    public Date getDataServico() {
         return dataServico;
     }
 
