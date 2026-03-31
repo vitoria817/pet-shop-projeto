@@ -42,13 +42,11 @@ public class Consulta extends Servico {
     public ArrayList<Medicamento> getMedicamentos() {//COLOCAR USO
         return medicamentos;
     }
-
+    //polimorfismo
     @Override
     public double calcularPreco() {
-
         double total = 100.0; // base
-
-        // agora soma preço dos medicamentos
+        // soma preço dos medicamentos
         for (Medicamento m : medicamentos) {
             total += m.getReceita();
         }

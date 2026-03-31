@@ -1,22 +1,18 @@
 package Pessoa;
 
-// Herança: Veterinario é uma Pessoa
+// Herança
 public class Veterinario extends Pessoa {
     private String especialidade;
     private String crmv;
-
     public Veterinario() {
         super();
     }
-
     public Veterinario(String nome, String cpf, String telefone, String especialidade, String crmv) {
-
         super(nome, cpf, telefone);//chamando o construtor da classe pessoa
-
         this.especialidade = especialidade;
         this.crmv = crmv;
     }
-
+    //polimosfismo
     @Override
     public String getDescricao() {
         return "Veterinário: " + getNome() +         // isso é sobrepor
@@ -24,7 +20,6 @@ public class Veterinario extends Pessoa {
                 " | CRMV: " + crmv;
 
     }
-
 
     // GETTERS
     public String getEspecialidade() {

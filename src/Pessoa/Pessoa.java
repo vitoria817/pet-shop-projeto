@@ -1,6 +1,6 @@
 package Pessoa;
 
-public abstract class Pessoa { //abstract= n pode criar objeto direto
+public abstract class Pessoa { //abstract
     private String nome;
     private String cpf;
     private String telefone;
