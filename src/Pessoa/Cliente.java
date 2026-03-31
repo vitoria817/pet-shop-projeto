@@ -7,8 +7,8 @@ public class Cliente extends Pessoa {
         super();
     }
 
-    public Cliente(String nome, String cpf, String telefone) {
-        super(nome, cpf, telefone);
+    public Cliente(String nome, String cpf, String telefone, String endereco) {
+        super(nome, cpf, telefone, endereco);
     }
 
     // Implementação obrigatória da classe abstrata
