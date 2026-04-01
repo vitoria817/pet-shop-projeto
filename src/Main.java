@@ -132,7 +132,7 @@ public class Main {
                         System.out.print("Diagnóstico: ");
                         consulta.setDiagnostico(sc.nextLine());
 
-                        // Associação com veterinário
+                        // Associação com veterinário (relacionamento entre objetos)
                         consulta.setVeterinario(vetPadrao);
 
                         // Define data atual automaticamente
@@ -193,11 +193,11 @@ public class Main {
                 System.out.println("💰 Valor: R$ " + valor);
                 System.out.println("________________________________");
 
-                total += s.calcularPreco();
+                total += s.calcularPreco(); 
             }
-            System.out.println("\n========================================");
-            System.out.println("💵 TOTAL: R$ " + total);
-            System.out.println("========================================");
+                System.out.println("\n========================================");
+                System.out.println("💵 TOTAL: R$ " + total);
+                System.out.println("========================================");
 
         } catch (Exception e) {
             // Captura erro geral do sistema

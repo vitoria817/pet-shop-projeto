@@ -3,7 +3,7 @@ package Pessoa;
 
 public class Atendente extends Pessoa {
 
-    private String turno;
+    private String turno; 
 
     public Atendente() {
         super();
@@ -17,15 +17,15 @@ public class Atendente extends Pessoa {
     @Override
     public String getDescricao() {
         return "Atendente: " + getNome() +
-                " | Turno: " + turno;
+               " | Turno: " + turno;
     }
 
-
+    
     public String getTurno() {
         return turno;
     }
 
-
+    
     public void setTurno(String turno) {
         this.turno = turno;
     }
