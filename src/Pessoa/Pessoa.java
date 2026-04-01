@@ -2,14 +2,14 @@ package Pessoa;
 
 public abstract class Pessoa { //abstract
     private String nome;
-    private String cpf;
+    private String cpf; //encapsulamento
     private String telefone;
 
     public Pessoa() {}//cria objeto sem valores
 
     public Pessoa(String nome, String cpf, String telefone) {
         this.nome = nome;
-        setCpf(cpf);
+        setCpf(cpf); //construtor
         this.telefone = telefone;
     }
 
