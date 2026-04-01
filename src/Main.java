@@ -70,6 +70,14 @@ public class Main {
                     "CRMV-1234"
             );
             System.out.println(vetPadrao.getDescricao());
+
+            Atendente atendente = new Atendente(
+                    "João",
+                    "12345678901",
+                    "41999999999",
+                    "Manhã"
+            );
+            System.out.println(atendente.getDescricao());
             // Lista que armazena TODOS os serviços realizados
             // Aqui ocorre POLIMORFISMO (Banho e Consulta são Servico)
             ArrayList<Servico> servicos = new ArrayList<>();
