@@ -1,9 +1,9 @@
 package Pessoa;
 
-// Atendente também é uma Pessoa
+
 public class Atendente extends Pessoa {
 
-    private String turno; // exemplo: manhã, tarde, noite
+    private String turno; 
 
     public Atendente() {
         super();
@@ -20,12 +20,12 @@ public class Atendente extends Pessoa {
                " | Turno: " + turno;
     }
 
-    // GETTER
+    
     public String getTurno() {
         return turno;
     }
 
-    // SETTER
+    
     public void setTurno(String turno) {
         this.turno = turno;
     }
