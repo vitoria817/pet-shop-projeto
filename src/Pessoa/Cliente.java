@@ -18,5 +18,35 @@ public class Cliente extends Pessoa {
         //get descrição vem da classe abstrata
         //@Override sobrescreve um metodo existente da super() classe pessoa
     }
+
+    public static class Atendente extends Pessoa {
+
+        private String turno;
+
+        public Atendente() {
+            super();
+        }
+
+        public Atendente(String nome, String cpf, String telefone, String turno) {
+            super(nome, cpf, telefone);
+            this.turno = turno;
+        }
+
+        @Override
+        public String getDescricao() {
+            return "Pessoa.Pessoa.Atendente: " + getNome() +
+                    " | Turno: " + turno;
+        }
+
+
+        public String getTurno() {
+            return turno;
+        }
+
+
+        public void setTurno(String turno) {
+            this.turno = turno;
+        }
+    }
 }
 

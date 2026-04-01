@@ -61,7 +61,7 @@ public class Main {
             pet.setIdade(sc.nextInt());
             sc.nextLine(); // limpa buffer
 
-            // Veterinário fixo
+            // Veterinário fixo (simula funcionário do sistema)
             Veterinario vetPadrao = new Veterinario(
                     "Dr. Carlos",
                     "12345678910",
@@ -70,6 +70,14 @@ public class Main {
                     "CRMV-1234"
             );
             System.out.println(vetPadrao.getDescricao());
+
+            Atendente atendente = new Atendente(
+                    "João",
+                    "12345678901",
+                    "41999999999",
+                    "Manhã"
+            );
+            System.out.println(atendente.getDescricao());
             // Lista que armazena TODOS os serviços realizados
             // Aqui ocorre POLIMORFISMO (Banho e Consulta são Servico)
             ArrayList<Servico> servicos = new ArrayList<>();
@@ -124,7 +132,7 @@ public class Main {
                         System.out.print("Diagnóstico: ");
                         consulta.setDiagnostico(sc.nextLine());
 
-                        // Associação com veterinário (relacionamento entre objetos)
+                        // Associação com veterinário
                         consulta.setVeterinario(vetPadrao);
 
                         // Define data atual automaticamente

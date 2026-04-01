@@ -30,4 +30,5 @@ public abstract class Pessoa { //abstract
 
     // ABSTRAÇÃO
     public abstract String getDescricao();
-}
+
+    }
