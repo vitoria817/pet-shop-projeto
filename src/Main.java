@@ -162,7 +162,6 @@ public class Main {
 
             System.out.println("👤 Cliente: " + cliente.getNome());
             System.out.println("🐾 Pet: " + pet.getNome());
-            //seria bim colocar data aqui
 
             double total = 0;
 
@@ -173,7 +172,7 @@ public class Main {
                 System.out.println("\n----------------------------------------");
                 System.out.println("🔧 Serviço: " + s.getClass().getSimpleName());
 
-                // instanceof verifica o tipo real do objeto
+                // instancia verifica o tipo real do objeto
                 if (s instanceof Consulta) {
                     Consulta c = (Consulta) s;
 
