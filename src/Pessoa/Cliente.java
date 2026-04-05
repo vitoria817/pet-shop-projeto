@@ -3,12 +3,15 @@ package Pessoa;
 // Classe Cliente herda de Pessoa
 public class Cliente extends Pessoa {
 
+    private String endereco;
+
     public Cliente() {
         super();
     }
 
     public Cliente(String nome, String cpf, String telefone, String endereco) {
-        super(nome, cpf, telefone, endereco);
+        super(nome, cpf, telefone);
+        this.endereco = endereco;
     }
 
     // Implementação obrigatória da classe abstrata
@@ -49,4 +52,3 @@ public class Cliente extends Pessoa {
         }
     }
 }
-

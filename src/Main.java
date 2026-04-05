@@ -69,7 +69,6 @@ public class Main {
                     "Clínico Geral",
                     "CRMV-1234"
             );
-            System.out.println(vetPadrao.getDescricao());
 
             Atendente atendente = new Atendente(
                     "João",
@@ -77,7 +76,7 @@ public class Main {
                     "41999999999",
                     "Manhã"
             );
-            System.out.println(atendente.getDescricao());
+
             // Lista que armazena TODOS os serviços realizados
             // Aqui ocorre POLIMORFISMO (Banho e Consulta são Servico)
             ArrayList<Servico> servicos = new ArrayList<>();
@@ -102,10 +101,12 @@ public class Main {
 
                     case 1: {
 
+                        System.out.println(atendente.getDescricao());
+
                         Banho banho = new Banho();
 
                         // Escolha do tipo de tosa
-                        System.out.println("\n🛁 BANHO / TOSA");
+                        System.out.println("\n TOSA");
                         System.out.println("----------------------------------------");
                         System.out.println("Tipos disponíveis:");
                         System.out.println("• Tosa Higiênica");
@@ -119,11 +120,13 @@ public class Main {
 
                         servicos.add(banho); // adiciona na lista
 
-                        System.out.println("✅ Serviço de banho registrado com sucesso!");
+                        System.out.println("✅ Serviço registrado com sucesso!");
                         break;
                     }
 
                     case 2: {
+                        System.out.println(vetPadrao.getDescricao());
+
                         System.out.println("\n🩺 CONSULTA VETERINÁRIA");
                         System.out.println("----------------------------------------");
 
@@ -192,11 +195,11 @@ public class Main {
                 System.out.println("💰 Valor: R$ " + valor);
                 System.out.println("________________________________");
 
-                total += s.calcularPreco(); 
+                total += s.calcularPreco();
             }
-                System.out.println("\n========================================");
-                System.out.println("💵 TOTAL: R$ " + total);
-                System.out.println("========================================");
+            System.out.println("\n========================================");
+            System.out.println("💵 TOTAL: R$ " + total);
+            System.out.println("========================================");
 
         } catch (Exception e) {
             // Captura erro geral do sistema
